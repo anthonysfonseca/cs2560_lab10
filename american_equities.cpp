@@ -17,8 +17,8 @@ int main()
 {
 	char passWord[20];
 
-	cout << "Enter a password consisting of exactly 5 "
-		 << "letters and 3 digits:" << endl;
+	cout << "Enter a password consisting of exactly 6 "
+		 << "letters and 4 digits:" << endl;
 
 	cin.getline(passWord, 20);
 
@@ -28,7 +28,7 @@ int main()
 	else
 	{
 		cout << "Invalid password. Please enter a password "
-			 << "with exactly 5 letters and 3 digits" << endl;
+			 << "with exactly 6 letters and 4 digits" << endl;
 		cout << "For example, my37RuN9 is valid" << endl;
 	}
 
@@ -43,9 +43,9 @@ int main()
 //
 //  task:	       determines if the word in the
 //	               character array passed to it, contains
-//	               exactly 5 letters and 3 digits.
+//	               exactly 6 letters and 4 digits.
 //  data in:	   a word contained in a character array
-//  data returned: true if the word contains 5 letters & 3
+//  data returned: true if the word contains 6 letters & 4
 //	               digits, false otherwise
 //
 //**************************************************************
@@ -57,7 +57,7 @@ bool testPassWord(char custPass[])
 	numLetters = countLetters(custPass);
 	numDigits = countDigits(custPass);
 
-	if (numLetters == 5 && numDigits == 3 && length == 8)
+	if (numLetters == 6 && numDigits == 4 && length == 10)
 		return true;
 	else
 		return false;
