@@ -24,12 +24,11 @@ int main()
 
 	if (testPassWord(passWord))
 		cout << "Please wait - your password is being verified" << endl;
-
 	else
 	{
 		cout << "Invalid password. Please enter a password "
-			 << "with exactly 6 letters and 4 digits" << endl;
-		cout << "For example, my37RuN9 is valid" << endl;
+			 << "with exactly 6 letters and 4 digits and no uppercase letters" << endl;
+		cout << "For example, my37run9 is valid" << endl;
 	}
 
 	cout << "The number of letters in your password is " << countLetters(passWord) << endl;
@@ -49,16 +48,23 @@ int main()
 //	               digits, false otherwise
 //
 //**************************************************************
-bool testPassWord(char custPass[])
-{
+bool testPassWord(char custPass[]) {
 	int numLetters, numDigits, length;
 
 	length = strlen(custPass);
 	numLetters = countLetters(custPass);
 	numDigits = countDigits(custPass);
+	bool isLowerCase = true;
 
-	if (numLetters == 6 && numDigits == 4 && length == 10)
-		return true;
+	if (numLetters == 6 && numDigits == 4 && length == 10) {
+		for (int i = 0; i < length; i++) {
+			if (!islower(custPass[i]) && !isdigit(custPass[i])) {
+				isLowerCase = false;
+				i = length;
+			}
+		}
+		return isLowerCase;
+	}
 	else
 		return false;
 }
